@@ -1,10 +1,12 @@
 <template>
   <div>
     <h2>{{title}}</h2>
-    <button @click="fetchCurrencyData">Fetch Currencty Data</button>
-    <section-one></section-one>
+
+
+   <hr>
+    <section-one :product = "product"></section-one>
     <hr>
-    <section-two></section-two>
+    <section-two :product = "product"></section-two>
   </div>
 </template>
 
@@ -19,20 +21,17 @@ export default {
   },
   data() {
     return {
-      title: 'Test Javascript Spread'
+      title: 'Test Javascript Spread',
+      product: {id: 12, price: 29.5}
     }
   },
 
   mounted() {
-    console.log('oops')
+    this.product.num = 1
   },
 
   methods: {
-    fetchCurrencyData() {
-      fetch('https://api.exchangeratesapi.io/latest?base=AUD&symbols=CNY')
-      .then((response)=> {return response.json()})
-      .then((data)=>{console.log(data)})
-    }
+    
   }
 }
 </script>
