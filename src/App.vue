@@ -22,12 +22,16 @@ export default {
   data() {
     return {
       title: 'Test Javascript Spread',
-      product: {id: 12, price: 29.5}
+      product: null
     }
   },
 
-  mounted() {
-    this.product.num = 1
+  created() {
+
+    let product  = {id: 12, price: 29.5}
+    product.num = 1
+    this.product = product
+    //this.product = {...this.product, num: 1}
   },
 
   methods: {
